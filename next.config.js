@@ -5,6 +5,6 @@ module.exports = nextConfig
 
 module.exports = {
     images: {
-        domains: ['media.rawg.io'],
+        domains: ['media.rawg.io', 'static.vecteezy.com'],
     },
 }
