@@ -16,7 +16,7 @@ const fetchData = async () => {
 export default async function Games() {
   const games = await fetchData();
   return (
-    <div className="grid gap-16 grid-cols-fluid xl:grid-cols-4 p-6">
+    <div className="grid gap-4 grid-cols-fluid xl:grid-cols-4 p-6">
       {games.map((game) => (
         <Game key={game.id} game={game} />
       ))}

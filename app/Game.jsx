@@ -44,7 +44,7 @@ export default function Game({ game }) {
   // }, []);
 
   return (
-    <div className="bg-gray-800 text-white p-4 rounded-lg my-6 mt-16">
+    <div className="bg-gray-800 text-white p-4 rounded-lg my-6 mt-14">
       {/*card title */}
       <div className="py-6">
         <h1 className="text-xl font-extrabold text-center">{game.name}</h1>
