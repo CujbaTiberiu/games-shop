@@ -1,15 +1,18 @@
-"use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Result } from "./interfaces/game";
 
-export default function Game({ game }) {
+interface GameProps {
+  game: Result;
+}
+
+const Game: React.FC<GameProps> = ({ game }) => {
   //const [gameTrailer, setGameTrailer] = useState([]);
-  const rating = game.rating <= 4;
+  const rating: boolean = game.rating <= 4;
 
   // const startPreview = (e) => {
   //   fetchTrailer(id);
@@ -61,8 +64,8 @@ export default function Game({ game }) {
             <p
               className={
                 rating
-                  ? "p-4 my-2 bg-yellow-400 inline-block rounded-lg"
-                  : "p-4 my-2 bg-green-400 inline-block rounded-lg"
+                  ? "px-4 py-3 my-2 bg-yellow-400 inline-block rounded-lg"
+                  : "px-4 py-3 my-2 bg-green-400 inline-block rounded-lg"
               }
             >
               {game.rating}
@@ -88,14 +91,28 @@ export default function Game({ game }) {
         />
       </div>
       {/*card footer */}
-      <button className="text-center p-4 bg-teal-700 rounded-lg mx-20 my-4">
-        <HoverCard>
-          <HoverCardTrigger>See more..</HoverCardTrigger>
-          <HoverCardContent className="bg-gray-800 text-white">
-            boh
-          </HoverCardContent>
-        </HoverCard>
-      </button>
+      <div className="flex justify-center items-center">
+        <button className="text-center px-4 py-2 bg-teal-700 rounded-lg my-4">
+          <HoverCard>
+            <HoverCardTrigger>See more..</HoverCardTrigger>
+            <HoverCardContent className="bg-gray-800 text-white w-full">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 ">
+                {game.short_screenshots?.map((screenshot, index) => (
+                  <Image
+                    key={screenshot.id}
+                    className="h-60 rounded-lg hover:scale-150 duration-500 "
+                    src={screenshot.image}
+                    alt={`Screenshot ${index + 1}`}
+                    width={400}
+                    height={400}
+                  />
+                ))}
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+        </button>
+      </div>
     </div>
   );
-}
+};
+export default Game;

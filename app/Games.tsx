@@ -1,10 +1,10 @@
-import { resolve } from "path";
+import React from "react";
 import Game from "./Game";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Result, ShortScreenshot } from "./interfaces/game";
 
 const fetchData = async () => {
   const res = await fetch(
-    "https://api.rawg.io/api/games?key=cd9f48419af04cc7b8f18d08f0cac5ec"
+    "https://api.rawg.io/api/games?key=d1000661dcb14d97af2681fbfce3c0c4&page=1"
   );
 
   await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -17,7 +17,7 @@ export default async function Games() {
   const games = await fetchData();
   return (
     <div className="grid gap-4 grid-cols-fluid xl:grid-cols-4 p-6">
-      {games.map((game) => (
+      {games.map((game: Result) => (
         <Game key={game.id} game={game} />
       ))}
     </div>
