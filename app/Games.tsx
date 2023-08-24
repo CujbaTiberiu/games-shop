@@ -1,6 +1,6 @@
 import React from "react";
+import { Result, ShortScreenshot } from "../interfaces/game";
 import Game from "./Game";
-import { Result, ShortScreenshot } from "./interfaces/game";
 
 const fetchData = async () => {
   const res = await fetch(

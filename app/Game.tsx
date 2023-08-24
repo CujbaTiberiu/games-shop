@@ -4,7 +4,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { Result } from "./interfaces/game";
+import { Result } from "../interfaces/game";
 
 interface GameProps {
   game: Result;
@@ -94,7 +94,7 @@ const Game: React.FC<GameProps> = ({ game }) => {
       <div className="flex justify-center items-center">
         <button className="text-center px-4 py-2 bg-teal-700 rounded-lg my-4">
           <HoverCard>
-            <HoverCardTrigger>See more..</HoverCardTrigger>
+            <HoverCardTrigger>See screenshots</HoverCardTrigger>
             <HoverCardContent className="bg-gray-800 text-white w-full">
               <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 ">
                 {game.short_screenshots?.map((screenshot, index) => (
